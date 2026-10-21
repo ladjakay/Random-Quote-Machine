@@ -1,0 +1,220 @@
+/* Custom CSS Variables & Reset */
+:root {
+  --bg-primary: #4a00e0;
+  --bg-secondary: #8e2de2;
+  --accent-color: #ffffff;
+  --text-dark: #2d3748;
+  --text-muted: #718096;
+  --card-bg: rgba(255, 255, 255, 0.95);
+  --shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Outfit', sans-serif;
+  background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
+  transition: background 0.8s ease;
+  padding: 20px;
+}
+
+/* Quote Card Box */
+#quote-box {
+  width: 100%;
+  max-width: 600px;
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  transition: var(--transition);
+  position: relative;
+}
+
+/* Header Elements */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.category-badge {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--text-dark);
+}
+
+.action-tools {
+  display: flex;
+  gap: 10px;
+}
+
+.tool-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: var(--transition);
+}
+
+.tool-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--text-dark);
+}
+
+/* Quote Main Body */
+.quote-content {
+  display: flex;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.quote-icon {
+  font-size: 2rem;
+  color: var(--bg-primary);
+  opacity: 0.6;
+  transition: color 0.8s ease;
+  flex-shrink: 0;
+}
+
+#text {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.65rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--text-dark);
+  transition: opacity 0.3s ease;
+}
+
+/* Author Section */
+.quote-author-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+}
+
+.dash {
+  color: var(--text-muted);
+  font-weight: 300;
+}
+
+#author {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  font-style: italic;
+  transition: opacity 0.3s ease;
+}
+
+/* Controls & Buttons */
+.controls-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.social-links {
+  display: flex;
+  gap: 12px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.social-btn {
+  width: 44px;
+  height: 44px;
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--text-dark);
+  font-size: 1.2rem;
+}
+
+.social-btn:hover {
+  transform: translateY(-3px);
+  background: var(--bg-primary);
+  color: white;
+}
+
+.primary-btn {
+  background: var(--bg-primary);
+  color: white;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  gap: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  transition: background 0.8s ease, transform 0.2s ease;
+}
+
+.primary-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.95;
+}
+
+.primary-btn:active {
+  transform: translateY(0);
+}
+
+/* Toast Notification */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: #2d3748;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  opacity: 0;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.toast.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+/* Responsive Styles */
+@media (max-width: 480px) {
+  #quote-box {
+    padding: 24px;
+  }
+  
+  #text {
+    font-size: 1.35rem;
+  }
+}
